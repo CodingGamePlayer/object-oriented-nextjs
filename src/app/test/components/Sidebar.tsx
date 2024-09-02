@@ -3,10 +3,10 @@ import SidebarItemComponent from "./SidebarItemComponent";
 
 export default function Sidebar() {
   return (
-    <div className="w-64 bg-gray-900 text-white p-4 h-screen">
+    <aside className="w-64 h-screen bg-gray-800 text-gray-200 p-4 fixed left-0 top-0 overflow-y-auto">
       {sidebarItems.map((item, index) => (
         <SidebarItemComponent key={index} item={item} />
       ))}
-    </div>
+    </aside>
   );
 }

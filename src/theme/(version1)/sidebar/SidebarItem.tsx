@@ -9,7 +9,7 @@ import { FaCalendarAlt, FaPlus, FaTasks, FaUser } from "react-icons/fa";
 class MainItem extends SidebarItem {
   render(): ReactNode {
     return (
-      <div className="sidebar-item flex items-center px-2 py-2 rounded-md mt-4 font-bold text-gray-400">
+      <div className="sidebar-item flex items-center py-2 rounded-md mt-4 font-bold text-gray-400">
         {this.renderContent()}
       </div>
     );
@@ -21,7 +21,7 @@ class MainChildItem extends ChildSidebarItem {
     return (
       <Link
         href={this.path}
-        className="sidebar-item flex items-center px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200 ease-in-out w-full text-gray-200"
+        className="sidebar-item flex items-center p-2 hover:bg-gray-700 rounded-md transition-colors duration-200 ease-in-out w-full text-gray-300"
       >
         {this.renderContent()}
       </Link>

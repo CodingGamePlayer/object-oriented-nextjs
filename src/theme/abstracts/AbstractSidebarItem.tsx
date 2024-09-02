@@ -32,7 +32,7 @@ export abstract class ChildSidebarItem extends SidebarItem {
   }
 
   protected renderTitle(): ReactNode {
-    return <span className="title">{this.title}</span>; // 자식 아이템은 볼드 처리되지 않음
+    return <span className="title text-sm">{this.title}</span>;
   }
 
   renderContent(): ReactNode {
