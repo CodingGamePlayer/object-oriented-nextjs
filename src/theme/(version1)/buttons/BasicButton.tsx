@@ -1,8 +1,7 @@
-import React from 'react';
-import {Button, ButtonProps} from "@/theme/interfaces/Button";
+import { Button } from "@/theme/abstracts/AbstractButton";
 
 export class BasicButton extends Button {
     protected getAdditionalClasses(): string {
-        return "bg-blue-800 hover:bg-blue-600 active:bg-blue-700";
+        return "bg-blue-500 hover:bg-blue-700";
     }
 }

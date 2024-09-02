@@ -14,9 +14,14 @@ export abstract class Button extends React.Component<ButtonProps> {
         return "";
     }
 
+    protected getCombinedClasses(): string {
+        const { className } = this.props;
+        return `${className || ''} ${this.baseClasses} ${this.getAdditionalClasses()}`.trim();
+    }
+
     render() {
-        const { onClick, label, className, disabled } = this.props;
-        const combinedClasses = `${className || ''} ${this.baseClasses} ${this.getAdditionalClasses()}`.trim();
+        const { onClick, label, disabled } = this.props;
+        const combinedClasses = this.getCombinedClasses();
 
         console.log('Button render', combinedClasses);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import {ButtonProps} from "@/theme/interfaces/Button";
+import { ButtonProps } from "./abstracts/AbstractButton";
 
 export enum ButtonType {
     Basic = 'basic',
