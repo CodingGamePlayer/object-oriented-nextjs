@@ -27,13 +27,9 @@ export class ComponentV1Factory implements ComponentFactoryInterface {
       case "Basic":
         return new BasicCard({ ...props }).render();
       case "Image":
-        return new ImageCard({ imageUrl: "", ...props }).render();
+        return new ImageCard({ ...props }).render();
       case "Profile":
-        return new ProfileCard({
-          profileImageUrl: "",
-          name: "",
-          ...props,
-        }).render();
+        return new ProfileCard({ ...props }).render();
       default:
         throw new Error(`Unsupported card type: ${type}`);
     }
