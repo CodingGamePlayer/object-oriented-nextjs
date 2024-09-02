@@ -1,7 +1,11 @@
 import { BasicButton } from "@/theme/(version1)/buttons/BasicButton";
 import { DisabledButton } from "@/theme/(version1)/buttons/DisabledButton";
 import { EmphasizedButton } from "@/theme/(version1)/buttons/EmphasizedButton";
-import { ButtonType, ComponentFactoryInterface } from "@/theme/theme.interface";
+import {
+  ButtonType,
+  CardType,
+  ComponentFactoryInterface,
+} from "@/theme/theme.interface";
 import { CardProps } from "../abstracts/AbstractCard";
 import { BasicCard } from "./cards/BasicCard";
 import { ImageCard } from "./cards/ImageCard";
@@ -22,13 +26,13 @@ export class ComponentV1Factory implements ComponentFactoryInterface {
     }
   }
 
-  createCard(type: string, props: CardProps): React.ReactElement {
+  createCard(type: CardType, props: CardProps): React.ReactElement {
     switch (type) {
-      case "Basic":
+      case CardType.Basic:
         return new BasicCard({ ...props }).render();
-      case "Image":
+      case CardType.Image:
         return new ImageCard({ ...props }).render();
-      case "Profile":
+      case CardType.Profile:
         return new ProfileCard({ ...props }).render();
       default:
         throw new Error(`Unsupported card type: ${type}`);

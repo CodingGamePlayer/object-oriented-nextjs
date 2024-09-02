@@ -1,37 +1,41 @@
-import React from 'react';
+import React, { ReactNode } from "react";
 
 export interface CardProps {
-    title: string;
-    content: string;
-    className?: string;
-    imageUrl?: string; // 추가된 속성
-    profileImageUrl?: string;
-    name?: string;
+  title: string;
+  content: string;
+  className?: string;
+  imageUrl?: string; // 추가된 속성
+  profileImageUrl?: string;
+  name?: string;
+  children?: ReactNode; // 추가된 속성
 }
 
 export abstract class Card extends React.Component<CardProps> {
-    protected baseClasses: string = "p-4 border rounded-md shadow-md";
+  protected baseClasses: string = "p-4 border rounded-md shadow-md";
 
-    protected getAdditionalClasses(): string {
-        return "";
-    }
+  protected getAdditionalClasses(): string {
+    return "";
+  }
 
-    protected getCombinedClasses(): string {
-        const { className } = this.props;
-        return `${className || ''} ${this.baseClasses} ${this.getAdditionalClasses()}`.trim();
-    }
+  protected getCombinedClasses(): string {
+    const { className } = this.props;
+    return `${className || ""} ${
+      this.baseClasses
+    } ${this.getAdditionalClasses()}`.trim();
+  }
 
-    render() {
-        const { title, content } = this.props;
-        const combinedClasses = this.getCombinedClasses();
+  render() {
+    const { title, content, children } = this.props;
+    const combinedClasses = this.getCombinedClasses();
 
-        console.log('Card render', combinedClasses);
+    console.log("Card render", combinedClasses);
 
-        return (
-            <div className={combinedClasses}>
-                <h2 className="font-bold text-lg">{title}</h2>
-                <p>{content}</p>
-            </div>
-        );
-    }
+    return (
+      <div className={combinedClasses}>
+        <h2 className="font-bold text-lg">{title}</h2>
+        <p>{content}</p>
+        {children}
+      </div>
+    );
+  }
 }
