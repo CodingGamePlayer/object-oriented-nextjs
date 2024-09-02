@@ -1,3 +1,4 @@
+import React from "react";
 import {ButtonProps} from "@/theme/interfaces/Button";
 
 export enum ButtonType {

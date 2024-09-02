@@ -18,17 +18,20 @@ export default function ButtonFactoryPage() {
 
     const basicButtonProps: ButtonProps = {
         label: "Basic Button",
-        onClick: () => handleClick("Basic")
+        onClick: () => handleClick("Basic"),
+        className: "px-1" // 페이지에서 스타일 지정
     };
 
     const disabledButtonProps: ButtonProps = {
         label: "Disabled Button",
-        onClick: () => handleClick("Disabled")
+        onClick: () => handleClick("Disabled"),
+        className: "px-8" // 페이지에서 스타일 지정
     };
 
     const emphasizedButtonProps: ButtonProps = {
         label: "Emphasized Button",
-        onClick: () => handleClick("Emphasized")
+        onClick: () => handleClick("Emphasized"),
+        className: "px-1" // 페이지에서 스타일 지정
     };
 
     if (!theme) {

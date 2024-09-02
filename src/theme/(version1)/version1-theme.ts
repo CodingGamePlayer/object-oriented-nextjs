@@ -4,7 +4,6 @@ import {DisabledButton} from "@/theme/(version1)/buttons/DisabledButton";
 import {EmphasizedButton} from "@/theme/(version1)/buttons/EmphasizedButton";
 import { ButtonType, ComponentFactoryInterface} from "@/theme/theme.interface";
 
-
 export class ComponentV1Factory implements ComponentFactoryInterface {
     createButton(type: ButtonType, props: ButtonProps): React.ReactElement {
         switch (type) {
