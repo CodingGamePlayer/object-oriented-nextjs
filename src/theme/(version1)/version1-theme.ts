@@ -11,6 +11,7 @@ import { BasicCard } from "./cards/BasicCard";
 import { ImageCard } from "./cards/ImageCard";
 import { ProfileCard } from "./cards/ProfileCard";
 import { ButtonProps } from "../abstracts/AbstractButton";
+import { SidebarItem } from "../abstracts/AbstractSidebarItem";
 
 export class ComponentV1Factory implements ComponentFactoryInterface {
   createButton(type: ButtonType, props: ButtonProps): React.ReactElement {
