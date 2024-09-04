@@ -1,10 +1,15 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
-export abstract class SidebarItem {
-  constructor(public title: string, public children?: SidebarItem[]) {}
+export interface SidebarItemProps {
+  title: string;
+  children?: SidebarItem[];
+  icon?: ReactNode;
+  path?: string;
+}
 
+export abstract class SidebarItem extends React.Component<SidebarItemProps> {
   protected renderTitle(): ReactNode {
-    return <span className="title">{this.title}</span>; // 부모 아이템은 볼드 처리
+    return <span className="title">{this.props.title}</span>;
   }
 
   renderContent(): ReactNode {
@@ -15,24 +20,19 @@ export abstract class SidebarItem {
 }
 
 export abstract class ChildSidebarItem extends SidebarItem {
-  constructor(
-    public title: string,
-    public path: string,
-    public icon: ReactNode,
-    public children?: SidebarItem[]
-  ) {
-    super(title, children);
+  constructor(props: SidebarItemProps) {
+    super(props);
   }
 
   protected renderIcon(): ReactNode {
-    if (this.icon) {
-      return <span className="icon mr-2">{this.icon}</span>;
+    if (this.props.icon) {
+      return <span className="icon mr-2">{this.props.icon}</span>;
     }
     return null;
   }
 
   protected renderTitle(): ReactNode {
-    return <span className="title text-sm">{this.title}</span>;
+    return <span className="title text-sm">{this.props.title}</span>;
   }
 
   renderContent(): ReactNode {

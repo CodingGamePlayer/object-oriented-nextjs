@@ -1,17 +1,15 @@
 import { BasicButton } from "@/theme/(version1)/buttons/BasicButton";
 import { DisabledButton } from "@/theme/(version1)/buttons/DisabledButton";
 import { EmphasizedButton } from "@/theme/(version1)/buttons/EmphasizedButton";
-import {
-  ButtonType,
-  CardType,
-  ComponentFactoryInterface,
-} from "@/theme/theme.interface";
-import { CardProps } from "../abstracts/AbstractCard";
+import { ButtonType, CardType, ComponentFactoryInterface } from "@/theme/theme.interface";
+import { ButtonProps } from "../abstracts/class-type/AbstractButton";
+import { CardProps } from "../abstracts/class-type/AbstractCard";
 import { BasicCard } from "./cards/BasicCard";
 import { ImageCard } from "./cards/ImageCard";
 import { ProfileCard } from "./cards/ProfileCard";
-import { ButtonProps } from "../abstracts/AbstractButton";
-import { SidebarItem } from "../abstracts/AbstractSidebarItem";
+import { MainChildItem, MainItem, SidebarItemType } from "./sidebar/SidebarItem";
+import { SidebarItem } from "../abstracts/class-type/AbstractSidebarItem";
+import React from "react";
 
 export class ComponentV1Factory implements ComponentFactoryInterface {
   createButton(type: ButtonType, props: ButtonProps): React.ReactElement {
@@ -37,6 +35,17 @@ export class ComponentV1Factory implements ComponentFactoryInterface {
         return new ProfileCard({ ...props }).render();
       default:
         throw new Error(`Unsupported card type: ${type}`);
+    }
+  }
+
+  createSidebarItem(type: SidebarItemType, props: any): SidebarItem {
+    switch (type) {
+      case SidebarItemType.Main:
+        return new MainItem({ ...props });
+      case SidebarItemType.Child:
+        return new MainChildItem({ ...props });
+      default:
+        throw new Error(`Unsupported sidebar item type: ${type}`);
     }
   }
 }
